@@ -4,7 +4,7 @@ import FilterPanel from './components/FilterPanel';
 import CalculatorCard from './components/CalculatorCard';
 import {
   Box,
-  Bricks,
+  Layers,
   LayoutGrid,
   Waves,
   Ruler,
@@ -30,7 +30,7 @@ const ALL_TYPES = [
 
 const ICON_MAP = {
   Concrete: Box,
-  Masonry: Bricks,
+  Masonry: Layers,
   Tile: LayoutGrid,
   Pools: Waves,
   Framing: Ruler,
