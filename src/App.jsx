@@ -10,7 +10,7 @@ import {
   Ruler,
   Square,
   Zap,
-  Pipe,
+  Toilet,
   Home,
   Calculator
 } from 'lucide-react';
@@ -36,7 +36,7 @@ const ICON_MAP = {
   Framing: Ruler,
   Drywall: Square,
   Electrical: Zap,
-  Plumbing: Pipe,
+  Plumbing: Toilet,
   Roofing: Home,
   'General Purpose': Calculator,
 };
