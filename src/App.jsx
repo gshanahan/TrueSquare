@@ -30,7 +30,7 @@ export default function App() {
     <div className="min-h-screen bg-gray-100 text-gray-800">
       <Header />
       <div className="p-4">
-        <FilterBar
+        <FilterPanel
           filters={filters}
           onAdd={handleAddFilter}
           onRemove={handleRemoveFilter}
