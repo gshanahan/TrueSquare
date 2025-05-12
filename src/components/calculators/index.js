@@ -17,12 +17,12 @@ export const calculatorComponents = {
   'Tile Quantity Calculator': TileQuantityCalculator,
   'Pool Perimeter & Surface Area': PoolPerimeterSurfaceAreaCalculator,
   'Concrete Volume for Pools': ConcreteVolumeForPoolsCalculator,
-  'Pipe Volume': PipeVolumeCalculator,
+  'Pipe Volume Calculator': PipeVolumeCalculator,
   'Rebar Estimator': RebarEstimator,
   'Slab Cost Estimator': SlabCostEstimator,
-  'Mortar Mix': MortarMixCalculator,
+  'Mortar Mix Calculator': MortarMixCalculator,
   'Block Wall Estimator': BlockWallEstimator,
-  'Voltage Drop': VoltageDropCalculator,
+  'Voltage Drop Calculator': VoltageDropCalculator,
   'Conduit Fill Calculator': ConduitFillCalculator,
 
   // Add others here like:
