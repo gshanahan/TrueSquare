@@ -1,10 +1,24 @@
 import React from 'react';
+import { calculatorComponents } from './calculators';
 
 export default function CalculatorCard({ title, types, iconMap }) {
+  const CalculatorComponent = calculatorComponents[title];
+
   return (
-    <div className="bg-white rounded-xl shadow p-4">
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <div className="flex flex-wrap gap-2 text-sm text-gray-700">
+    <div className="bg-white rounded-xl shadow p-4 space-y-3">
+      <h3 className="text-lg font-semibold">{title}</h3>
+
+      {/* Calculator content (if exists) */}
+      {CalculatorComponent ? (
+        <div className="pt-2 border-t border-gray-200">
+          <CalculatorComponent />
+        </div>
+      ) : (
+        <p className="text-sm text-gray-500">Calculator coming soon...</p>
+      )}
+
+      {/* Type tags with icons */}
+      <div className="flex flex-wrap gap-2 text-sm text-gray-700 pt-2 border-t border-gray-100">
         {types.map(type => {
           const Icon = iconMap[type];
           return (
