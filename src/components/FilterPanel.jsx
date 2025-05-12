@@ -30,7 +30,7 @@ export default function FilterPanel({ filters, onAdd, onRemove, allTypes, iconMa
             <button
               key={type}
               onClick={() => onAdd(type)}
-              className="text-sm md:text-base px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition w-full sm:w-auto"
+              className="flex items-center gap-1 bg-gray-200 hover:bg-gray-300 text-gray-800 px-3 py-1 rounded-full text-sm"
             >
               {Icon && <Icon size={16} />}
               {type}

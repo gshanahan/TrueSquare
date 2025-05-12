@@ -100,7 +100,7 @@ export default function App() {
           allTypes={ALL_TYPES}
           iconMap={ICON_MAP}
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
           {visibleCalculators.map(calc => (
             <CalculatorCard
               key={calc.id}
