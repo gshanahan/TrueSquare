@@ -14,6 +14,7 @@ import {
   Home,
   PocketKnife
 } from 'lucide-react';
+import { iconMap } from './iconMap';
 
 const ALL_TYPES = [
   'Favorites',
