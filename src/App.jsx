@@ -4,7 +4,7 @@ import FilterPanel from './components/FilterPanel';
 import CalculatorCard from './components/CalculatorCard';
 import {
   Box,
-  Layers,
+  BrickWall,
   LayoutGrid,
   Waves,
   Ruler,
@@ -12,7 +12,8 @@ import {
   Zap,
   Toilet,
   Home,
-  Calculator
+  PocketKnife,
+  BrickWall
 } from 'lucide-react';
 
 const ALL_TYPES = [
@@ -30,7 +31,7 @@ const ALL_TYPES = [
 
 const ICON_MAP = {
   Concrete: Box,
-  Masonry: Layers,
+  Masonry: BrickWall,
   Tile: LayoutGrid,
   Pools: Waves,
   Framing: Ruler,
@@ -38,7 +39,7 @@ const ICON_MAP = {
   Electrical: Zap,
   Plumbing: Toilet,
   Roofing: Home,
-  'General Purpose': Calculator,
+  'General Purpose': PocketKnife,
 };
 
 const dummyCalculators = [
