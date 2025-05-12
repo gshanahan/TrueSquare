@@ -23,7 +23,7 @@ export const calculatorComponents = {
   'Mortar Mix': MortarMixCalculator,
   'Block Wall Estimator': BlockWallEstimator,
   'Voltage Drop': VoltageDropCalculator,
-  'Conduit Fill': ConduitFillCalculator,
+  'Conduit Fill Calculator ': ConduitFillCalculator,
 
   // Add others here like:
   // 'Tile Quantity Calculator': TileQuantityCalculator,
