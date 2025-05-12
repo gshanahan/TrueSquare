@@ -1,12 +1,31 @@
 import React from 'react';
 import { calculatorComponents } from './calculators';
+import { Star, StarOff } from 'lucide-react';
 
-export default function CalculatorCard({ title, types, iconMap }) {
+export default function CalculatorCard({ 
+  id, 
+  title, 
+  types, 
+  iconMap, 
+  isFavorite, 
+  onToggleFavorite 
+}) {
   const CalculatorComponent = calculatorComponents[title];
 
   return (
-    <div className="bg-white rounded-xl shadow p-4 space-y-3">
-      <h3 className="text-lg font-semibold">{title}</h3>
+    <div className="bg-white rounded-xl shadow p-4 space-y-3 relative">
+
+      {/* Favorite toggle */}
+      <button
+        onClick={() => onToggleFavorite(id)}
+        className="absolute top-3 right-3 text-yellow-500 hover:scale-110 transition-transform"
+        title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+      >
+        {isFavorite ? <Star fill="currentColor" /> : <StarOff />}
+      </button>
+
+      {/* Title */}
+      <h3 className="text-lg font-semibold pr-8">{title}</h3>
 
       {/* Calculator content (if exists) */}
       {CalculatorComponent ? (

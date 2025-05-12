@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 
 const ALL_TYPES = [
+  'Favorites',
   'Concrete',
   'Masonry',
   'Tile',
@@ -77,6 +78,11 @@ const dummyCalculators = [
 export default function App() {
   const [filters, setFilters] = useState(['Concrete']);
 
+  const [favorites, setFavorites] = useState(() => {
+    const saved = localStorage.getItem('favorites');
+    return saved ? JSON.parse(saved) : [];
+  });
+
   const handleAddFilter = (type) => {
     if (!filters.includes(type)) setFilters([...filters, type]);
   };
@@ -85,9 +91,21 @@ export default function App() {
     setFilters(filters.filter(f => f !== type));
   };
 
-  const visibleCalculators = dummyCalculators.filter(calc =>
-    calc.types.some(t => filters.includes(t))
-  );
+  const toggleFavorite = (id) => {
+    const updatedFavorites = favorites.includes(id)
+      ? favorites.filter(fav => fav !== id)
+      : [...favorites, id];
+  
+    setFavorites(updatedFavorites);
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+  };  
+
+  const visibleCalculators = dummyCalculators.filter(calc => {
+    if (filters.includes('Favorites')) {
+      return favorites.includes(calc.id);
+    }
+    return calc.types.some(t => filters.includes(t));
+  });  
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-800">
@@ -103,10 +121,12 @@ export default function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
           {visibleCalculators.map(calc => (
             <CalculatorCard
-              key={calc.id}
-              title={calc.title}
-              types={calc.types}
-              iconMap={ICON_MAP}
+            key={calc.id}
+            title={calc.title}
+            types={calc.types}
+            iconMap={iconMap}
+            isFavorite={favorites.includes(calc.id)}
+            onToggleFavorite={() => toggleFavorite(calc.id)}
             />
           ))}
         </div>
