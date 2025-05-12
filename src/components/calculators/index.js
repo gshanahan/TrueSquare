@@ -26,6 +26,8 @@ import ShingleEstimator from './ShingleEstimator';
 import RoofPitchCalculator from './RoofPitchCalculator';
 import IceWaterShieldEstimator from './IceWaterShieldEstimator';
 import SurfaceAreaPerimeterCalculator from './SurfaceAreaAndPerimeterCalculator';
+import MaterialWeightCalculator from './MaterialWeightCalculator';
+import LaborTimeCostEstimator from './LaborTimeEstimator';
 
 // import more calculators as you create them
 
@@ -58,6 +60,8 @@ export const calculatorComponents = {
   'Roof Pitch Calculator': RoofPitchCalculator,
   'Ice & Water Shield Estimator': IceWaterShieldEstimator,
   'Surface Area & Perimeter': SurfaceAreaPerimeterCalculator,
+  'Material Weight Calculator': MaterialWeightCalculator,
+  'Labor Time Estimator': LaborTimeCostEstimator,
 
   // Add others here like:
   // 'Tile Quantity Calculator': TileQuantityCalculator,
