@@ -12,8 +12,7 @@ import {
   Zap,
   Toilet,
   Home,
-  PocketKnife,
-  BrickWall
+  PocketKnife
 } from 'lucide-react';
 
 const ALL_TYPES = [
