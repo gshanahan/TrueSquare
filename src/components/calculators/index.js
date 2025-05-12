@@ -18,6 +18,14 @@ import StudSpacingCalculator from './StudSpacingCalculator';
 import JoistSpanCalculator from './JoistSpanCalculator';
 import DrywallSheetEstimator from './DrywallSheetEstimator';
 import ScrewCountEstimator from './ScrewCountEstimator';
+import JointCompoundEstimator from './JointCompoundEstimator';
+import BreakerLoadEstimator from './BreakerLoadEstimator';
+import DrainSlopeChecker from './DrainSlopeChecker';
+import FixtureUnitCalculator from './FixtureUnitCalculator';
+import ShingleEstimator from './ShingleEstimator';
+import RoofPitchCalculator from './RoofPitchCalculator';
+import IceWaterShieldEstimator from './IceWaterShieldEstimator';
+import SurfaceAreaPerimeterCalculator from './SurfaceAreaAndPerimeterCalculator';
 
 // import more calculators as you create them
 
@@ -42,7 +50,14 @@ export const calculatorComponents = {
   'Joist Span Calculator': JoistSpanCalculator,
   'Drywall Sheet Estimator': DrywallSheetEstimator,
   'Screw Count Estimator': ScrewCountEstimator,
-  
+  'Joint Compound Estimator': JointCompoundEstimator,
+  'Breaker Load Estimator': BreakerLoadEstimator,
+  'Drain Slope Checker': DrainSlopeChecker,
+  'Fixture Unit Calculator': FixtureUnitCalculator,
+  'Shingle Estimator': ShingleEstimator,
+  'Roof Pitch Calculator': RoofPitchCalculator,
+  'Ice & Water Shield Estimator': IceWaterShieldEstimator,
+  'Surface Area & Perimeter': SurfaceAreaPerimeterCalculator,
 
   // Add others here like:
   // 'Tile Quantity Calculator': TileQuantityCalculator,
