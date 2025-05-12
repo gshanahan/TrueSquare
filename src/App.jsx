@@ -124,7 +124,7 @@ export default function App() {
             key={calc.id}
             title={calc.title}
             types={calc.types}
-            iconMap={iconMap}
+            iconMap={ICON_MAP}  // ✅ Correct reference
             isFavorite={favorites.includes(calc.id)}
             onToggleFavorite={() => toggleFavorite(calc.id)}
             />
