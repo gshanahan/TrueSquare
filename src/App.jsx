@@ -87,6 +87,8 @@ export default function App() {
     return parsed.length > 0 ? ['Favorites'] : ['Concrete'];
   });
 
+  const [searchQuery, setSearchQuery] = useState('');
+
   const handleAddFilter = (type) => {
     if (!filters.includes(type)) setFilters([...filters, type]);
   };
@@ -105,10 +107,13 @@ export default function App() {
   };
 
   const visibleCalculators = dummyCalculators.filter(calc => {
-    if (filters.includes('Favorites')) {
-      return favorites.includes(calc.id);
-    }
-    return calc.types.some(t => filters.includes(t));
+    const matchesFilter = filters.includes('Favorites')
+      ? favorites.includes(calc.id)
+      : calc.types.some(t => filters.includes(t));
+
+    const matchesSearch = calc.title.toLowerCase().includes(searchQuery.toLowerCase());
+
+    return matchesFilter && matchesSearch;
   });
 
   return (
@@ -122,6 +127,25 @@ export default function App() {
           allTypes={ALL_TYPES}
           iconMap={ICON_MAP}
         />
+
+        <div className="flex flex-col md:flex-row md:items-center gap-2 mt-4 w-full md:w-1/2">
+          <input
+            type="text"
+            placeholder="Search calculators..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="flex-1 p-2 border border-gray-300 rounded-lg"
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="px-3 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition"
+            >
+              Clear
+            </button>
+          )}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
           {visibleCalculators.map(calc => (
             <CalculatorCard
