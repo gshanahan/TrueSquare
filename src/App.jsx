@@ -107,12 +107,14 @@ export default function App() {
   };
 
   const visibleCalculators = dummyCalculators.filter(calc => {
-    const matchesFilter = filters.includes('Favorites')
-      ? favorites.includes(calc.id)
-      : calc.types.some(t => filters.includes(t));
-
+    const matchesFilter = filters.length === 0
+      ? true
+      : filters.includes('Favorites')
+        ? favorites.includes(calc.id)
+        : calc.types.some(t => filters.includes(t));
+  
     const matchesSearch = calc.title.toLowerCase().includes(searchQuery.toLowerCase());
-
+  
     return matchesFilter && matchesSearch;
   });
 
