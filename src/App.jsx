@@ -76,11 +76,15 @@ const dummyCalculators = [
 ];
 
 export default function App() {
-  const [filters, setFilters] = useState(['Concrete']);
-
   const [favorites, setFavorites] = useState(() => {
     const saved = localStorage.getItem('favorites');
     return saved ? JSON.parse(saved) : [];
+  });
+
+  const [filters, setFilters] = useState(() => {
+    const saved = localStorage.getItem('favorites');
+    const parsed = saved ? JSON.parse(saved) : [];
+    return parsed.length > 0 ? ['Favorites'] : ['Concrete'];
   });
 
   const handleAddFilter = (type) => {
@@ -95,17 +99,17 @@ export default function App() {
     const updatedFavorites = favorites.includes(id)
       ? favorites.filter(fav => fav !== id)
       : [...favorites, id];
-  
+
     setFavorites(updatedFavorites);
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-  };  
+  };
 
   const visibleCalculators = dummyCalculators.filter(calc => {
     if (filters.includes('Favorites')) {
       return favorites.includes(calc.id);
     }
     return calc.types.some(t => filters.includes(t));
-  });  
+  });
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-800">
@@ -121,12 +125,12 @@ export default function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
           {visibleCalculators.map(calc => (
             <CalculatorCard
-            key={calc.id}
-            title={calc.title}
-            types={calc.types}
-            iconMap={ICON_MAP}  // ✅ Correct reference
-            isFavorite={favorites.includes(calc.id)}
-            onToggleFavorite={() => toggleFavorite(calc.id)}
+              key={calc.id}
+              title={calc.title}
+              types={calc.types}
+              iconMap={ICON_MAP}
+              isFavorite={favorites.includes(calc.id)}
+              onToggleFavorite={() => toggleFavorite(calc.id)}
             />
           ))}
         </div>
